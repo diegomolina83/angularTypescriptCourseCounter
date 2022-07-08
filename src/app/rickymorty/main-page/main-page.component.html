@@ -1,0 +1,30 @@
+<h1>Rick & Morty</h1>
+<hr>
+
+
+<div class="row">
+    <div class="col">
+        <h3>Characters</h3>
+        <ul>
+            <li *ngFor="let character of characters">{{character.name}} - {{character.power | number}}</li>
+        </ul>
+    </div>
+
+    <div class="col">
+        <h3>Add</h3>
+        <hr>
+
+        <form (ngSubmit)="add()">
+            <input type="text"
+                placeholder="Name"
+                [value]=newCharacter.name
+                (input)="cambiarNombre($event)">
+            <input type="text"
+                placeholder="Power"
+                name="power"
+                [(ngModel)]=newCharacter.power>
+
+            <button [disabled]="newCharacter.name.trim().length < 1">Add</button>
+        </form>
+    </div>
+</div>
