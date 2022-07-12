@@ -1,0 +1,15 @@
+<h3>Add</h3>
+<hr>
+
+<form (ngSubmit)="add()">
+    <input type="text"
+        placeholder="Name"
+        [value]=newCharacter.name
+        (input)="cambiarNombre($event)">
+    <input type="text"
+        placeholder="Power"
+        name="power"
+        [(ngModel)]=newCharacter.power>
+
+    <button [disabled]="newCharacter.name.trim().length < 1">Add</button>
+</form>

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Character } from '../interfaces/rickymorty.interface';
+import { RickymortyService } from '../services/rickymorty.service';
 
-interface Character {
-  name: string;
-  power: number;
-}
+
 
 @Component({
   selector: 'app-main-page',
@@ -12,7 +11,6 @@ interface Character {
 })
 export class MainPageComponent implements OnInit {
 
-  characters: Character[] = [{ name: "Rick", power: 100 }, { name: "Morty", power: 90 }, { name: "Beth", power: 110 }]
 
   newCharacter: Character =
     {
@@ -20,19 +18,12 @@ export class MainPageComponent implements OnInit {
       power: 0
     }
 
+  constructor() {
 
-  add() {
-    this.characters.push(this.newCharacter);
-    this.newCharacter = { name: '', power: 0 };
   }
-
-  cambiarNombre(event: any) {
-    this.newCharacter.name = event.target.value
-  }
-
-  constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
